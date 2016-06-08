@@ -1,9 +1,13 @@
 {
+    "title": "MinimalSendGrid",
     "version": "1.0.0",
+
+    "language": "en",
 
     "authors": [ "Sebastien ROBERT" ],
     "description": "Minimal implementation of the SendGrid HTTP v3 API to send emails, compatible with .NET Platform Standard 1.0",
     "packOptions": {
+        "projectUrl": "https://github.com/TanukiSharp/MinimalSendGrid",
         "repository": {
             "type": "git",
             "url": "https://github.com/TanukiSharp/MinimalSendGrid"
