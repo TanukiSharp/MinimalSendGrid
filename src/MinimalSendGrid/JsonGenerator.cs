@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SendGridCore
+namespace MinimalSendGrid
 {
     /// <summary>
     /// Json generator that can stringify a JSON object, based on IDictionary(string, object) type.

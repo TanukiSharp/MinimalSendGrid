@@ -5,5 +5,5 @@
 // associated with an assembly.
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Sebastien ROBERT")]
-[assembly: AssemblyProduct("SendGridCore.Tester")]
+[assembly: AssemblyProduct("MinimalSendGrid")]
 [assembly: AssemblyTrademark("")]

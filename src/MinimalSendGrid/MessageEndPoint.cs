@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SendGridCore
+namespace MinimalSendGrid
 {
     /// <summary>
     /// Represents an immutable message end point information.

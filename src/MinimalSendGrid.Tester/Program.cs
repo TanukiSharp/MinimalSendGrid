@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using SendGridCore;
+using MinimalSendGrid;
 
-namespace SendGridCore.Tester
+namespace MinimalSendGrid.Tester
 {
     public class Program
     {

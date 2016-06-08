@@ -6,7 +6,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SendGridCore
+namespace MinimalSendGrid
 {
     /// <summary>
     /// Represents an implementation of the SendGrid email sending HTTP service using API version 3.

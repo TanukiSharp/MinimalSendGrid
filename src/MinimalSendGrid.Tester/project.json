@@ -1,5 +1,5 @@
 {
-    "version": "1.0.0.0",
+    "version": "1.0.0",
 
     "buildOptions": {
         "emitEntryPoint": true
@@ -10,7 +10,7 @@
             "type": "platform",
             "version": "1.0.0-rc2-3002702"
         },
-        "SendGridCore": "1.0.0.0"
+        "MinimalSendGrid": "1.0.0"
     },
 
     "frameworks": {

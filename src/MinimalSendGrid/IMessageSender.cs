@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SendGridCore
+namespace MinimalSendGrid
 {
     /// <summary>
     /// Represents the result of a message sending.
