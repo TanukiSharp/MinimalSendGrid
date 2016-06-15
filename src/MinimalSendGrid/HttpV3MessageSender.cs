@@ -21,7 +21,7 @@ namespace MinimalSendGrid
         /// <summary>
         /// Gets the SendGrid HTTP email sending service path.
         /// </summary>
-        public const string DefaultSendEndPointPath = "/v3/mail/send/beta";
+        public const string DefaultSendEndPointPath = "/v3/mail/send";
 
         private readonly string sendEndPointPath;
         private readonly HttpClient client;
