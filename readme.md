@@ -1,4 +1,4 @@
-# MinimalSendGrid
+# MinimalSendGrid [<img src="https://img.shields.io/badge/nuget-1.0.1-blue.svg" target="_blank">](https://www.nuget.org/packages/MinimalSendGrid)
 
 Minimal implementation of the SendGrid HTTP v3 API to send emails, compatible with `.NET Platform Standard 1.0`.
 
