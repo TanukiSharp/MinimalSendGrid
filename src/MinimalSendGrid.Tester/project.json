@@ -10,7 +10,7 @@
             "type": "platform",
             "version": "1.0.0-rc2-3002702"
         },
-        "MinimalSendGrid": "1.0.0"
+        "MinimalSendGrid": "1.0.1"
     },
 
     "frameworks": {
