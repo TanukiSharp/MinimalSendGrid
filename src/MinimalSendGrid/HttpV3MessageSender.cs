@@ -70,7 +70,7 @@ namespace MinimalSendGrid
                 throw new InvalidOperationException("Invalid message.");
 
             object jsonRoot = FormatMessage(message);
-            string jsonContent = JsonGenerator.Stringify(jsonRoot, true);
+            string jsonContent = Newtonsoft.Json.JsonConvert.SerializeObject(jsonRoot, Newtonsoft.Json.Formatting.None);
 
             var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
