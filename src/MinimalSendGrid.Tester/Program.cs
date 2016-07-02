@@ -23,7 +23,7 @@ namespace MinimalSendGrid.Tester
                 .AddTo("alice@another.domain.ext")
                 .AddCc(new MessageEndPoint("bob", "bob@domain.ext"), "charly@domain.ext")
                 .SetSubject("test subject")
-                .SetBody("test body")
+                .AddBody("test body")
                 .Build();
             MessageSenderResult result = await sender.Send(message);
             Console.WriteLine(result);
@@ -33,7 +33,7 @@ namespace MinimalSendGrid.Tester
                 .SetFrom("you@domain.ext")
                 .AddTo("you@domain.ext")
                 .SetSubject("congrats!")
-                .SetBody("congrats for sending email!")
+                .AddBody(new MessageBody(MessageBodyContentType.Html, "congrats for sending email in HTML!"))
                 .Build();
 
             result = await sender.Send(message);

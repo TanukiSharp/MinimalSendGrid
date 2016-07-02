@@ -108,16 +108,13 @@ namespace MinimalSendGrid
             if (message.Subject != null)
                 root["subject"] = message.Subject;
 
-            if (message.Body != null)
+            if (message.Bodies != null && message.Bodies.Length > 0)
             {
-                root["content"] = new object[]
-                {
-                    new Dictionary<string, object>
-                    {
-                        ["type"] = "text/plain",
-                        ["value"] = message.Body
-                    }
-                };
+                Array.Sort(message.Bodies, MessageBodyComparer.Default.Value);
+
+                root["content"] = message.Bodies
+                    .Select(body => new Dictionary<string, object> { ["type"] = body.Type, ["value"] = body.Content })
+                    .ToArray();
             }
 
             return root;

@@ -36,9 +36,9 @@ namespace MinimalSendGrid
         public string Subject { get; }
 
         /// <summary>
-        /// Gets the message plain text body.
+        /// Gets the message bodies.
         /// </summary>
-        public string Body { get; }
+        public MessageBody[] Bodies { get; }
 
         /// <summary>
         /// Checks whether the current Message instance is valid or not.
@@ -60,13 +60,19 @@ namespace MinimalSendGrid
         /// <param name="cc">An array of message carbon copy recipients.</param>
         /// <param name="bcc">An array of message blind carbon copy recipients.</param>
         /// <param name="subject">The message subject.</param>
-        /// <param name="body">The message plain text body.</param>
-        public Message(MessageEndPoint from, MessageEndPoint[] to, MessageEndPoint[] cc, MessageEndPoint[] bcc, string subject, string body)
+        /// <param name="bodies">The message bodies.</param>
+        public Message(MessageEndPoint from, MessageEndPoint[] to, MessageEndPoint[] cc, MessageEndPoint[] bcc, string subject, MessageBody[] bodies)
         {
             if (from.IsValid == false)
-                throw new InvalidOperationException("Invalid 'from' information.");
+                throw new ArgumentException("Invalid 'from' information.");
+
             if (to == null || to.Length == 0)
-                throw new InvalidOperationException("Missing 'to' information.");
+                throw new ArgumentException("Missing 'to' information.");
+            else if (to.Any(x => x.IsValid == false))
+                throw new ArgumentException("In 'to' argument, at least one instance is invalid.");
+
+            if (bodies != null && bodies.Any(x => x.IsValid == false))
+                throw new ArgumentException("In 'bodies' argument, at least one instance is invalid.");
 
             if (cc != null && cc.Length == 0)
                 cc = null;
@@ -77,15 +83,15 @@ namespace MinimalSendGrid
             if (string.IsNullOrWhiteSpace(subject))
                 subject = null;
 
-            if (string.IsNullOrWhiteSpace(body))
-                body = null;
+            if (bodies != null && bodies.Length == 0)
+                bodies = null;
 
             From = from;
             To = to;
             Cc = cc;
             Bcc = bcc;
             Subject = subject;
-            Body = body;
+            Bodies = bodies;
         }
     }
 }

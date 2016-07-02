@@ -15,7 +15,7 @@ namespace MinimalSendGrid
         private List<MessageEndPoint> cc;
         private List<MessageEndPoint> bcc;
         private string subject;
-        private string body;
+        private List<MessageBody> bodies;
 
         /// <summary>
         /// Sets the sender information of the message.
@@ -112,13 +112,26 @@ namespace MinimalSendGrid
         }
 
         /// <summary>
-        /// Sets the plain text body of the message.
+        /// Adds a body to the message.
         /// </summary>
-        /// <param name="body">Plain text body of the message.</param>
+        /// <param name="body">Body of the message.</param>
         /// <returns>Returns the current MessageBuilder for composition.</returns>
-        public MessageBuilder SetBody(string body)
+        public MessageBuilder AddBody(params MessageBody[] bodies)
         {
-            this.body = body;
+            return AddBody((IEnumerable<MessageBody>)bodies);
+        }
+
+        /// <summary>
+        /// Adds a body to the message.
+        /// </summary>
+        /// <param name="body">Body of the message.</param>
+        /// <returns>Returns the current MessageBuilder for composition.</returns>
+        public MessageBuilder AddBody(IEnumerable<MessageBody> bodies)
+        {
+            if (this.bodies == null)
+                this.bodies = new List<MessageBody>();
+
+            this.bodies.AddRange(bodies);
             return this;
         }
 
@@ -134,7 +147,7 @@ namespace MinimalSendGrid
                 cc != null ? cc.ToArray() : null,
                 bcc != null ? bcc.ToArray() : null,
                 subject,
-                body
+                bodies != null ? bodies.ToArray() : null
             );
         }
     }
